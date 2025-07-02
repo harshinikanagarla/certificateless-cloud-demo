@@ -28,7 +28,7 @@ def test_send():
     encrypted = encrypt_message(plaintext)  # your logic
 
     response = requests.post(
-        "https://your-glitch-app.glitch.me/receive",
+        "https://boulder-joyous-bell.glitch.me/receive",
         json={"encrypted_data": encrypted.hex()}
     )
     return {"status": "sent", "glitch_response": response.json()}
