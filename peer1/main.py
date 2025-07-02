@@ -12,7 +12,7 @@ import os
 app = FastAPI()
 
 # Configurable URL (set this in Render or .env for local)
-PEER2_URL = os.getenv("PEER2_URL", "https://peer2-glitch-project.glitch.me/receive")
+PEER2_URL =  "https://peer2-glitch-project.glitch.me/receive"
 
 anon_id = generate_anonymous_id()
 private_key, public_key = generate_key_pair()
