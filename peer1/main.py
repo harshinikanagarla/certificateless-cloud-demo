@@ -22,6 +22,18 @@ shared_key = None
 def root():
     return {"peer1_id": anon_id}
 
+@app.get("/test-send")
+def test_send():
+    plaintext = b"Test message from Render"
+    encrypted = encrypt_message(plaintext)  # your logic
+
+    response = requests.post(
+        "https://your-glitch-app.glitch.me/receive",
+        json={"encrypted_data": encrypted.hex()}
+    )
+    return {"status": "sent", "glitch_response": response.json()}
+
+
 @app.get("/exchange")
 def exchange_key():
     pem_pub = public_key.public_bytes(
